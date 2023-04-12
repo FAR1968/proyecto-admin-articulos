@@ -1,0 +1,37 @@
+<h1>Administración de artículos</h1>
+<table border="1" *ngIf="hayArticulos()">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Borrar</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of articulos">
+      <td>{{e.codigo}}</td>
+      <td>{{e.descripcion}}</td>
+      <td>{{e.precio}}</td>
+      <td><button (click)="borrar(e.codigo)">Borrar</button></td>
+      <td><button (click)="seleccionar(e.codigo)">Seleccionar</button></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<div>
+  <p>
+    Código: <input type="number" [(ngModel)]="codigo">
+  </p>
+  <p>
+    Descripción: <input type="text" [(ngModel)]="descripcion">
+  </p>
+  <p>
+    Precio: <input type="number" [(ngModel)]="precio">
+  </p>
+  <p>
+    <button (click)="agregar()">Agregar</button>
+    <button (click)="modificar()">Modificar</button>
+  </p>
+</div>
